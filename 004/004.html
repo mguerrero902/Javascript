@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 004</title>
+</head>
+
+<body>
+    <h1>Ejercicio 004</h1>
+    <ul>
+        <li>1) Ingrese el número que desea validar si es primo</li>
+        <p id="pEjercicio1">
+            <input type="text" id="iPrimo">
+            <p id="respuesta1"></p>
+            <button type="submit" onclick="validarPrimo(iPrimo.value);">Punto 1</button>
+        </p>
+
+        <li>2) Ingrese el número que dese validar si es par o impar</li>
+        <p id="pEjercicio2">
+            <input type="text" id="iPar">
+            <p id="respuesta2"></p>
+            <button type="submit" onclick="validarPar(iPar.value);">Punto 2</button>
+        </p>
+
+        <li>3) Ingrese la temperatura que desea convertir, no olvide seleccionar el tipo de medida</li>
+        <p id="pEjercicio3">
+            <input type="text" id="iTemperatura">
+            <select name="selectT" id="selectTemp">
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+            </select>
+            <p id="respuesta3"></p>
+            <button type="submit" onclick="convertirTemperatura();">Punto 3</button>
+        </p>
+    </ul>
+    <script>
+        const validarPrimo = (numero) => {
+            console.log(numero % numero);
+        }
+    </script>
+</body>
+
+</html>

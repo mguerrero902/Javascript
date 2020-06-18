@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 003</title>
+</head>
+
+<body>
+    <h1>Ejercicio 003</h1>
+    <ul>
+        <li>1) Programa una función que obtenga un número aleatoria entre 501 y 600</li>
+        <p id="pEjercicio1">
+            <p id="respuesta1"></p>
+            <button type="submit" onclick="obtenerNumero();">Ejercicio 1</button>
+        </p>
+
+        <li>2) Evaluar si un número es capicua</li>
+        <p id="pEjercicio2">
+            <input type="text" id="iNumber">
+            <p id="respuesta2"></p>
+            <button type="submit" onclick="evaluarCapicua(iNumber.value);">Ejericio 2</button>
+        </p>
+
+        <li>3) Calcular factorial</li>
+        <p id="pEjercicio3">
+            <input type="text" id="iNumberFactorial">
+            <p id="respuesta3"></p>
+            <button type="submit" onclick="calcularFactorial(iNumberFactorial.value);">Ejercicio 3</button>
+        </p>
+    </ul>
+    <script>
+        /*Programa una función que obtenga un numero aleatorio entre 501 y 600. */
+        const obtenerNumero = () => {
+                document.getElementById("respuesta1").innerHTML = `El número obtenido es el siguiente: "${Math.round(Math.random() * (100-1) + 501)}"`;
+            }
+            /*Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true. */
+        const evaluarCapicua = (numero) => {
+            let cadenaInvertida = "";
+            let size = numero.length;
+            while (size >= 0) {
+                cadenaInvertida = cadenaInvertida + numero.charAt(size);
+                size--;
+            }
+            document.getElementById("respuesta2").innerHTML = cadenaInvertida === numero ? `El número ingresado "${numero}" es capicua` : `El número ingresado "${numero}" no es capicua`;
+        }
+
+        /*Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+        const calcularFactorial = (numero) => {
+            let total = 1;
+            for (let i = 1; i <= numero; i++) {
+                total *= i;
+            }
+            document.getElementById("respuesta3").innerHTML = `El factorial del numero "${numero}" es "${total}"`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 002</title>
+  </head>
+  <body>
+    <h1>Ejercicio 002</h1>
+    <ul>
+      <li>1) Ingrese la cadena para invertir los caracteres</li>
+      <p name="pEjercicio1">
+        <input type="text" id="iCount" />
+        <p id="respuesta1"></p>
+        <button type="submit" onclick="invertirCadena(iCount.value);">Punto 1</button>
+      </p>
+
+      <li>2) Ingrese la palabra que desea buscar</li>
+      <p name="pEjercicio2">
+        <input type="text" id="iPalabra">
+        <p id="respuesta2"></p>
+        <button type="submit" onclick = "encontrarPalabra(iCount.value, iPalabra.value);">Punto 2</button>
+      </p>
+
+      <li>3) Ingrese la palabra que desea validar si es un palíndromo</li>
+      <p name="pEjericio3">
+        <input type="text" id="iPalindromo">
+        <p id="respuesta3"></p>
+        <button type="submit" onclick="validarPal(iPalindromo.value);">Punto 3</button>
+      </p>
+
+      <li>4) Ingrese la palabra que desea eliminar del texto</li>
+      <p name="pEjercicio4">
+        <input type="text" id="iPalabraRep">
+        <p id="textoLorem">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo autem et perferendis odit sit molestias maxime aut cupiditate! Praesentium doloribus adipisci omnis iure labore eius, beatae a perspiciatis sapiente. Recusandae! ejemplo 
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione cum culpa labore in magni velit incidunt asperiores, ejemplo natus accusamus sapiente. Repellat consequuntur voluptas asperiores ejemplo corporis iste ullam deserunt nisi ad.
+        </p>
+        <p id="respuesta4"></p>
+        <button type="submit" onclick="eliminarRep(textoLorem.textContent, iPalabraRep.value);">Punto 4</button>
+
+      </p>
+
+    </ul>
+    <script>
+      /* Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".*/
+      const invertirCadena = (cadena) =>{
+        let cadenaInvertida = "";
+        let size = cadena.length;
+        while(size >= 0){
+          cadenaInvertida = cadenaInvertida + cadena.charAt(size);
+          size--;
+        }
+
+        document.getElementById("respuesta1").innerHTML = `La cadena ingresada es "${cadena}" y la cadena invertida queda "${cadenaInvertida}"`;
+      };
+
+      /*  Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.*/
+      const encontrarPalabra = (cadena, palabra) => {
+      
+        const palabras = cadena.split(" ");
+        let contador = 0;
+        for(let i=0;i <= palabras.length; i++){
+          if(palabras[i] === palabra){
+            contador++;
+          }
+        }
+        if(contador === 0){
+          document.getElementById("respuesta2").innerHTML = `La palabra ${palabra} no se encuentra dentro del texto ingresado`;
+        }else{
+          document.getElementById("respuesta2").innerHTML = `La palabra ${palabra} se encuentra ${contador} en el texto ingresado`;
+        }
+      };
+
+      /*  Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.*/
+      const validarPal = (cadena) => {
+        let cadenaInvertida = "";
+        let size = cadena.length;
+        while(size >= 0){
+          cadenaInvertida = cadenaInvertida + cadena.charAt(size);
+          size--;
+        }
+        if(cadenaInvertida === cadena){
+          document.getElementById("respuesta3").innerHTML = `La palabra "${cadena}" es un palíndromo`;
+        }else{
+          document.getElementById("respuesta3").innerHTML = `La palabra "${cadena}" no es un palíndromo`;
+        }
+      };
+
+      /*Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.*/
+      const eliminarRep = (texto, palabra) =>{
+
+        const palabras = texto.split(" ");
+        let contador = 0;
+        for(let i=0;i <= palabras.length; i++){
+          if(palabras[i] === palabra){
+            contador++;
+          }
+        }
+        console.log(contador);
+        while(contador >= 0){
+          texto = texto.replace(palabra, "");
+          contador--;
+        }
+        document.getElementById("respuesta4").innerHTML = `La palabra a eliminar es "${palabra}" y el texto queda así <br> "${texto}"`;
+
+
+      }
+
+    </script>
+    
+  </body>
+</html>

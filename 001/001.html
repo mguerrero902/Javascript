@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 001</title>
+  </head>
+  <body>
+    <h1>Ejercicio Javascript 001</h1>
+    <ul>
+      <li>1) Ingrese la cadena para contar los caracteres</li>
+      <p name="pEjercicio1">
+        <input type="text" id="iCount" />
+        <p id="respuesta1"></p>
+        <button type="submit" onclick="contarCadena();">Ejercicio 1</button>
+      </p>
+      
+      <li>2) Ingrese el número en donde desea partir la cadena</li>
+      <p name="pEjercicio2"> 
+        <input type="text" id="iNumber">
+        <p id="respuesta2"></p>
+        <button type="submit" onclick="miFuncion(iCount.value, iNumber.value);">Ejercicio 2</button>
+      </p>
+      <p name="pEjercicio3">
+        <li>3) Ingrese el caracter por el que desea separa la cadena del primer ejercicio</li>
+        <input type="text" id="iSeparador">
+        <p id="respuesta3"></p>
+        <p id="respuesta3o"></p>
+        <button type="submit" onclick="separarEnArray(iCount.value, iSeparador.value);">Ejercicio 3</button>  
+      </p>
+      
+      <p name="pEjercicio4">
+        <li>4) Ingrese el número de veces que quiere repetir la cadena</li>
+        <input type="text" id="inVeces">
+        <p id="respuesta4"></p>
+        <button type="submit" onclick="repetirCadena(iCount.value, inVeces.value);">Ejercicio 4</button>
+      </p>
+      
+    </ul>
+
+    <script>
+      //Punto número 1
+      const contarCadena = () => {
+        let entrada, respuesta;
+        entrada = document.getElementById("iCount").value;
+        respuesta = document.getElementById("respuesta1");
+        respuesta.innerHTML = `La cadena ingresada es "${entrada}" y tiene ${entrada.length}`;
+      };
+
+      //Punto número 2
+      const miFuncion = (cadena, i) => {
+        document.getElementById("respuesta2").innerHTML = `La cadena ingresada es "${cadena}" y fue separa en el caracter ${i} el resultando es "${cadena.substr(0,i)}"`;
+      };
+
+      //Punto 3
+      const separarEnArray = (cadena, separador) =>{
+        const array = cadena.split(separador);
+        document.getElementById("respuesta3").innerHTML = `Respuesta: La cadena ingresada es "${cadena}" y fue separada por el caracter "${separador}" y el resultado es "${array}"`;
+        document.getElementById("respuesta3o").innerHTML = `Respuesta opcional: La cadena ingresada es "${cadena}" y fue separada por el caracter "${separador}" y el resultado es "[${array.map((x)=>{
+          return '"'+x+'"';
+        })}]"`;
+      };
+      //Punto 4
+      const repetirCadena = (cadena, nVeces) =>{
+        const array = [];
+        array[0] = cadena;
+        for(let i=0; i <= nVeces; i++){
+          array.push(cadena);
+        }
+        document.getElementById("respuesta4").innerHTML = `La cadena ingresada es "${cadena}" y será repetida ${nVeces} veces dando como resultado "${array}"`;
+      };
+    </script>
+  </body>
+</html>
