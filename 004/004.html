@@ -27,17 +27,34 @@
         <li>3) Ingrese la temperatura que desea convertir, no olvide seleccionar el tipo de medida</li>
         <p id="pEjercicio3">
             <input type="text" id="iTemperatura">
-            <select name="selectT" id="selectTemp">
+            <select id="selectTemp">
                 <option value="Celsius">Celsius</option>
                 <option value="Fahrenheit">Fahrenheit</option>
             </select>
             <p id="respuesta3"></p>
-            <button type="submit" onclick="convertirTemperatura();">Punto 3</button>
+            <button type="submit" onclick="convertirTemperatura(iTemperatura.value, selectTemp.value);">Punto 3</button>
         </p>
     </ul>
     <script>
+        /*Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.*/
         const validarPrimo = (numero) => {
-            console.log(numero % numero);
+            let contador = 2,
+                residuo = 1;
+
+            while (residuo !== 0 && contador <= numero) {
+                residuo = numero % contador
+                contador++;
+            }
+            document.getElementById("respuesta1").innerHTML = numero <= contador ? `Es número "${numero}" es un número primo` : `Es número "${numero}" NO es un número primo`;
+        }
+        /*Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.*/
+
+        const validarPar = numero => {
+            document.getElementById("respuesta2").innerHTML = (numero % 2) === 0 ? `El número "${numero}" es par` : `El número "${numero}" es impar`;
+        }
+        /*Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.*/
+        const convertirTemperatura = (valor, tipo) => {
+            document.getElementById("respuesta3").innerHTML = tipo === "Celsius" ? `La conversión de Celsius a Fahrenheit es <b>"${(valor * 1.8) + 32}" </b>` : `La conversión Fahrenheit a Celsius es <b> "${(valor - 32) * (5 / 9)}" </b>`;
         }
     </script>
 </body>
